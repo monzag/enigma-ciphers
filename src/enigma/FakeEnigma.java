@@ -4,6 +4,8 @@ import services.EnigmaService;
 
 public class FakeEnigma implements EnigmaService {
 
+	public static final boolean KEY_REQUIRED = false;
+
 	public FakeEnigma(){
 	}
 
@@ -19,8 +21,11 @@ public class FakeEnigma implements EnigmaService {
 		return "FakeEnigma";
 	}
 
-	public void initialize(){
+	public boolean isKeyRequired(){
+		return KEY_REQUIRED;
 	}
+
+	public void setKey(String key) {}
 
 
 }
