@@ -1,15 +1,18 @@
 package enigma;
 
 import services.EnigmaService;
+import app.AppModule;
 
 public class App {
 
 	public static void main(String... args){
 
-		EnigmaService enigma = new FakeEnigma();
+		FakeServiceRepository repo = new FakeServiceRepository();
+		repo.register(new FakeEnigma());
 
-		System.out.println(enigma.encipher("Text"));
-		System.out.println(enigma.decipher("#NCIPH#$#d"));
+		AppModule module = new FakeModule();
+		module.initialize(repo);
+		module.start();
 
 	}
 }

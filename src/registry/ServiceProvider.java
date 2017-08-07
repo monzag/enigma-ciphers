@@ -1,9 +1,9 @@
 package registry;
 
 import services.EnigmaService;
-
+import java.util.List;
 
 public interface ServiceProvider{
-	public String[] listAll();
+	public List<String> listAll();
 	public EnigmaService getByName(String name);
 }

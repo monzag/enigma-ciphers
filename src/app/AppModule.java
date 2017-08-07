@@ -4,6 +4,7 @@ import registry.ServiceProvider;
 
 
 public interface AppModule{
-	public void start(ServiceProvider provider);
-	public void getName();
+	public void initialize(ServiceProvider provider);
+	public String getName();
+	public void start();
 }
