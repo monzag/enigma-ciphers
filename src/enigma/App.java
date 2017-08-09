@@ -1,7 +1,7 @@
 package enigma;
 
 import services.EnigmaService;
-import app.AppModule;
+import app.Module;
 
 public class App {
 
@@ -10,7 +10,7 @@ public class App {
 		FakeServiceRepository repo = new FakeServiceRepository();
 		repo.register(new FakeEnigma());
 
-		AppModule module = new FakeModule();
+		Module module = new FakeModule();
 		module.initialize(repo);
 		module.start();
 

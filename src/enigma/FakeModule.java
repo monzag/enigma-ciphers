@@ -1,12 +1,13 @@
 package enigma;
 
-import app.AppModule;
+import app.Module;
+import app.View;
 import services.EnigmaService;
 import registry.ServiceProvider;
 
 import java.util.Scanner;
 
-public class FakeModule implements AppModule{
+public class FakeModule implements Module{
 
 	private ServiceProvider provider;
 
@@ -19,14 +20,14 @@ public class FakeModule implements AppModule{
 	}
 
 	public void start(){
-		System.out.println("Module started!");
+		View view = new ConsoleView();
+		view.print("Module started!");
 		EnigmaService enigma = provider.getByName("FakeEnigma");
 
-		Scanner in = new Scanner(System.in);
 
-		String text = in.next();
-	        System.out.println(enigma.encipher(text));
-                System.out.println(enigma.decipher("#NCIPH#$#d"));
+		String text = view.input("your secret msg: ");
+		view.print(enigma.encipher(text));
+		view.print(enigma.decipher("#NCIPH#$#d"));
 	}
 }
 	
