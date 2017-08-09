@@ -25,9 +25,11 @@ public class FakeModule implements Module{
 		EnigmaService enigma = provider.getByName("FakeEnigma");
 
 
-		String text = view.input("your secret msg: ");
-		view.print(enigma.encipher(text));
-		view.print(enigma.decipher("#NCIPH#$#d"));
+
+		Scanner scan = new Scanner(System.in);
+		while(scan.hasNextLine()){
+			view.print(enigma.encipher(scan.nextLine()));
+		}
 	}
 }
 	

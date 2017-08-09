@@ -23,6 +23,10 @@ public class ConsoleView implements View {
         return 0;
     }
 
+    public String readline(){
+        return new Scanner(System.in).next();
+    }
+
     
 
 }
