@@ -1,7 +1,6 @@
 package enigma;
 
 import app.Module;
-import app.View;
 import services.EnigmaService;
 import registry.ServiceProvider;
 
@@ -20,15 +19,12 @@ public class FakeModule implements Module{
 	}
 
 	public void start(){
-		View view = new ConsoleView();
-		view.print("Module started!");
 		EnigmaService enigma = provider.getByName("FakeEnigma");
-
 
 
 		Scanner scan = new Scanner(System.in);
 		while(scan.hasNextLine()){
-			view.print(enigma.encipher(scan.nextLine()));
+			System.out.println(enigma.encipher(scan.nextLine()));
 		}
 	}
 }
