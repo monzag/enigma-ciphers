@@ -7,12 +7,5 @@ public class App {
 
 	public static void main(String... args){
 
-		FakeServiceRepository repo = new FakeServiceRepository();
-		repo.register(new FakeEnigma());
-
-		Module module = new FakeModule();
-		module.initialize(repo);
-		module.start();
-
 	}
 }
