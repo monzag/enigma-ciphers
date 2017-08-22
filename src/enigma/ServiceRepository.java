@@ -27,4 +27,8 @@ public class ServiceRepository {
         }
     }
 
+    public void register(EnigmaService service) {
+        services.add(service);
+    }
+
 }
