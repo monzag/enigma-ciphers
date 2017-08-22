@@ -4,7 +4,7 @@ import registry.ServiceProvider;
 import registry.ServiceRegistry;
 import services.EnigmaService;
 
-public class ServiceRepository {
+public class ServiceRepository implements ServiceProvider, ServiceRegistry {
 
     // <EnigmaService>??
     public List<EnigmaService> services;
