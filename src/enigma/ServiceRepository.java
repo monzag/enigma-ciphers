@@ -14,16 +14,17 @@ public class ServiceRepository {
     
     }
 
-    public void register(EnigmaService service) {
-        services.add(service)
-    }
 
     public List<String> listAll() {
 
     }
 
     public EnigmaService getByName(String name) {
-
+        for (EnigmaService service ; services) {
+            if (service.getName() == name) {
+                return service;
+            }
+        }
     }
 
 }
