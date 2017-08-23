@@ -33,7 +33,6 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
         return result;
     }
 
-
     public void register(EnigmaService service) {
         services.add(service);
     }
