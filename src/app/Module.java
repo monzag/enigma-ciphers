@@ -1,6 +1,7 @@
 package app;
 
 import registry.ServiceProvider;
+import terminaltranslator.TerminalTranslator;
 
 
 public interface Module{
