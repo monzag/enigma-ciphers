@@ -26,7 +26,7 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
     public EnigmaService getByName(String name) {
         EnigmaService result = null;
         for (EnigmaService service : services) {
-            if (service.getName() == name) {
+            if (service.getName().equals(name)) {
                 result = service;
             }
         }

@@ -22,19 +22,22 @@ public class App {
 
     public void initializeServiceRepository() {
         this.repository = new ServiceRepository();
-        // tutaj wklepać z tej metody dodającej na sztywno wszystkie szyfry
+        EnigmaService ROT13 = new ROT13();
+        this.repository.register(ROT13);
     }
 
-    public void start(String cipher, String option) {
+    public void start(String option, String cipher) {
         this.translator = new TerminalTranslator();
         this.translator.initialize(this.repository);
         this.translator.setParameters(cipher, option); //przekazać to
+        this.translator.start();
     }
 
-    public void start(String cipher, String option, String key) {
+    public void start(String option, String cipher, String key) {
         this.translator = new TerminalTranslator();
         this.translator.initialize(this.repository);
         this.translator.setParameters(cipher, option, key); //przekazać to
+        this.translator.start();
     }
 
 	public static void main(String[] args) {
