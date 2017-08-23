@@ -2,11 +2,13 @@ package enigma;
 
 import services.EnigmaService;
 import app.Module;
+import java.util.*;
+
 
 public class App {
 
-    TerminalTranslator translator = null;
-    ServiceRepository repository = null;
+    TerminalTranslator translator;
+    ServiceRepository repository;
 
     public void showHelp(){
         //tutaj ogarnąć jak to ma być. Czy inicjalizować muszę to repozytorium czy jak to wywołać
@@ -24,7 +26,6 @@ public class App {
     }
 
     public void start(String cipher, String option) {
-        initializeServiceRepository();
         this.translator = new TerminalTranslator();
         this.translator.initialize(this.repository);
         this.translator.setParameters(cipher, option); //przekazać to
@@ -32,6 +33,7 @@ public class App {
 
 	public static void main(String[] args) {
         App app = new App();
+        app.initializeServiceRepository();
         app.start(args[0], args[1]);
 	}
 }
