@@ -31,9 +31,21 @@ public class App {
         this.translator.setParameters(cipher, option); //przekazać to
     }
 
+    public void start(String cipher, String option, String key) {
+        this.translator = new TerminalTranslator();
+        this.translator.initialize(this.repository);
+        this.translator.setParameters(cipher, option, key); //przekazać to
+    }
+
 	public static void main(String[] args) {
         App app = new App();
         app.initializeServiceRepository();
-        app.start(args[0], args[1]);
+        Integer size = args.length;
+
+        if (size.equals(2)) {
+            app.start(args[0], args[1]);
+        } else if (size.equals(3)) {
+            app.start(args[0], args[1], args[2]);
+        }
 	}
 }
