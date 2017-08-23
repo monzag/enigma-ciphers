@@ -13,11 +13,6 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
     public ServiceRepository() {
         services = new ArrayList<EnigmaService>();
         this.services = services;
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> Application
     }
 
     public ArrayList<String> listAll() {
@@ -36,19 +31,10 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
             }
         }
         return result;
-<<<<<<< HEAD
-    } 
-=======
     }
->>>>>>> Application
 
 
     public void register(EnigmaService service) {
         services.add(service);
     }
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Application
