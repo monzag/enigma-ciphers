@@ -7,13 +7,10 @@ import app.Module;
 
 public class App {
 
-    private static termianlTranslator = new TerminalTranslator();
-    private static serviceRepository = new ServiceRepository();
-
     public void showHelp(){
         //tutaj ogarnąć jak to ma być. Czy inicjalizować muszę to repozytorium czy jak to wywołać
         //czy może zamienić w tym 'ServiceRepository' na static tą metode ?
-        ArrayList<String> allCiphers = this.serviceRepository.listAll();
+        ArrayList<String> allCiphers = this.repository.listAll();
         System.out.println("Possible ciphers: ");
         for (String cipher : allCiphers) {
             System.out.println(cipher);
@@ -21,16 +18,17 @@ public class App {
     }
 
     public void initializeServiceRepository() {
-        // this.repository = new ServiceRepository();
-        // repository.register
+        this.repository = new ServiceRepository();
     }
 
-    public void start() {
-        termianlTranslator.setParameters(EnigmaService cipher, String args[1]);
-
+    public void start(String cipher, String option) {
+        initializeServiceRepository();
+        this.translator = new TerminalTranslator();
+        this.translator.initialize(ServiceRepository this.repository);
+        this.translator.setParameters(String cipher, String option); //przekazać to
     }
 
 	public static void main(String[] args) {
-        start();
+        start(args[0], args[1]);
 	}
 }
