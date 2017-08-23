@@ -27,4 +27,8 @@ public class ROT13 {
     public String getName() {
         return this.getClass().getSimpleName();
     }
+
+    public boolean isKeyRequired() {
+        return false;
+    }
 }
