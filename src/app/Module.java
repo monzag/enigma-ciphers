@@ -1,7 +1,7 @@
 package app;
 
 import registry.ServiceProvider;
-import terminaltranslator.TerminalTranslator;
+import enigma.TerminalTranslator;
 
 
 public interface Module{
