@@ -18,4 +18,9 @@ public class ROT13 {
         }
         return encipher_text;
     }
+
+    public String decipher(String text) {
+        String decipher_text = encipher(text);
+        return decipher_text;
+    }
 }
