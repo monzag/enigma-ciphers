@@ -23,4 +23,8 @@ public class ROT13 {
         String decipher_text = encipher(text);
         return decipher_text;
     }
+
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
 }
