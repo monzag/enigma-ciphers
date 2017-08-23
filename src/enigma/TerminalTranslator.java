@@ -15,7 +15,7 @@ public class TerminalTranslator{
     public void initialize(ServiceRepository repo){
         this.repo = repo;
     }
-    public void setParameters(EnigmaService serviceName, String mode){
+    public void setParameters(String serviceName, String mode){
         this.serviceName = repo.getByName(serviceName);
         this.mode = mode;
     }
