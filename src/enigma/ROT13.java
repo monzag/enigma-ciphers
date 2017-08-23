@@ -4,6 +4,12 @@ import services.EnigmaService;
 
 public class ROT13 {
 
+    public String key;
+
+    public ROT13() {
+        this.key = null;
+    }
+
     public String encipher(String text) {
         String encipher_text = "";
 
@@ -30,5 +36,11 @@ public class ROT13 {
 
     public boolean isKeyRequired() {
         return false;
+    }
+
+    public void setKey(String key) {
+        if (isKeyRequired() == true) {
+            this.key = key;
+        }
     }
 }
