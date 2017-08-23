@@ -23,15 +23,4 @@ public class ROT13 {
         return encipher_text;
     }
 
-    public static int[] getAscii() {
-        int ascii_amount = 256;
-        int[] values = new int[ascii_amount];
-
-        for (int i = 0; i < ascii_amount; i++) {
-            char temp = j;
-            values[i] = temp;
-        
-        return values;
-        }
-    }
 }
