@@ -12,7 +12,7 @@ public class TerminalTranslator{
     EnigmaService serviceName = null;
     String mode = null;
 
-    public void initialize(ServiceRepository repo) {
+    public void initialize(ServiceRepository repo){
         this.repo = repo;
     }
 
@@ -28,10 +28,16 @@ public class TerminalTranslator{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type in text");
         String toCipher = scanner.nextLine();
-        cipher();
+        cipher(toCipher);
     }
-    public void cipher();
 
-    String toCipher;
-
+    public void cipher(String toCipher) {
+        if (mode.equals("-e")){
+            String encipheredString = serviceName.encipher(toCipher);
+            System.out.println(encipheredString);
+        } else if (mode.equals("-d")){
+            String decipheredString = serviceName.decipher(toCipher);
+            System.out.println(decipheredString);
+        }
+    }
 }
