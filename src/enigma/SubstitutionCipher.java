@@ -6,14 +6,16 @@ import java.util.ArrayList;
 
 public class SubstitutionCipher implements EnigmaService {
 
-    public ArrayList<String> key;
+    public String key;
+    public ArrayList<String> generatedKey;
 
     public SubstitutionCipher(){
-        this.key = generateRandomKey();
+        this.generatedKey = generateRandomKey();
     }
 
     private ArrayList<String> generateRandomKey() {
-        ArrayList<String> ascii
+        ArrayList<String> ascii = new ArrayList<String>();
+        return ascii;
     }
 
     public String decipher(String toCipher) {
