@@ -32,11 +32,13 @@ public class App {
 
     public void initializeServiceRepository() {
         this.repository = new ServiceRepository();
+
         EnigmaService ROT13 = new ROT13();
-        this.repository.register(ROT13);
         EnigmaService Atbash = new Atbash();
-        this.repository.register(Atbash);
         EnigmaService SubstitutionCipher = new SubstitutionCipher();
+
+        this.repository.register(Atbash);
+        this.repository.register(ROT13);
         this.repository.register(SubstitutionCipher);
     }
 
@@ -64,7 +66,8 @@ public class App {
             System.out.println("Missing data. Type: '-l', '-e CIPHER [KEY]' or '-d CIPHER [KEY]'");
         } else if (size.equals(1)) {
             if (args[0].equals("-l")) { app.showHelp(); }
-            else { System.out.println("Wrong Parameter or missing data. Type: '-l', '-e CIPHER [KEY]' or '-d CIPHER [KEY]'"); }
+            else { System.out.println("Wrong Parameter or missing data");
+                   System.out.println("Type '-l', '-e CIPHER [KEY]' or '-d CIPHER [KEY]'"); }
         } else if (size.equals(2)) {
             if (app.isCipherPossible(args[1])) { app.start(args[0], args[1]); }
             else { System.out.println("No such cipher. Enter '-l' to list possible ciphers"); }
