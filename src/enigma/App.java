@@ -11,8 +11,6 @@ public class App {
     ServiceRepository repository;
 
     public void showHelp(){
-        //tutaj ogarnąć jak to ma być. Czy inicjalizować muszę to repozytorium czy jak to wywołać
-        //czy może zamienić w tym 'ServiceRepository' na static tą metode ?
         ArrayList<String> allCiphers = this.repository.listAll();
         System.out.println("Possible ciphers: ");
         for (String cipher : allCiphers) {
@@ -29,14 +27,14 @@ public class App {
     public void start(String option, String cipher) {
         this.translator = new TerminalTranslator();
         this.translator.initialize(this.repository);
-        this.translator.setParameters(cipher, option); //przekazać to
+        this.translator.setParameters(cipher, option);
         this.translator.start();
     }
 
     public void start(String option, String cipher, String key) {
         this.translator = new TerminalTranslator();
         this.translator.initialize(this.repository);
-        this.translator.setParameters(cipher, option, key); //przekazać to
+        this.translator.setParameters(cipher, option, key);
         this.translator.start();
     }
 
