@@ -2,7 +2,7 @@ package enigma;
 
 import services.EnigmaService;
 import app.Module;
-import java.util.*;
+import java.util.ArrayList;
 
 
 public class App {
@@ -22,11 +22,11 @@ public class App {
 
     public boolean isCipherPossible(String toCheck) {
         boolean doesCipherExists = false;
+        allCiphers = this.repository.listAll();
 
         for (String cipher : allCiphers) {
             if (cipher.equals(toCheck)) { doesCipherExists = true; }
         }
-
         return doesCipherExists;
     }
 
@@ -38,34 +38,43 @@ public class App {
         this.repository.register(Atbash);
     }
 
-    public void start(String option, String cipher) {
+    public void initializeTranslator() {
         this.translator = new TerminalTranslator();
         this.translator.initialize(this.repository);
+    }
+
+    public void start(String option, String cipher) {
+        initializeTranslator();
         this.translator.setParameters(cipher, option);
         this.translator.start();
     }
 
     public void start(String option, String cipher, String key) {
-        this.translator = new TerminalTranslator();
-        this.translator.initialize(this.repository);
+        initializeTranslator();
         this.translator.setParameters(cipher, option, key);
         this.translator.start();
     }
 
-	public static void main(String[] args) {
-        App app = new App();
+    public void handleWithWrongInputAndStart(App app, String[] args) {
         Integer size = args.length;
-        app.initializeServiceRepository();
 
         if (size.equals(0)) {
-            System.out.println("Give at least one parameter.");
+            System.out.println("Missing data. Type: '-l', '-e CIPHER [KEY]' or '-d CIPHER [KEY]'");
         } else if (size.equals(1)) {
             if (args[0].equals("-l")) { app.showHelp(); }
-            else { System.out.println("Wrong Parameter. Type '-l', '-e' or '-d'"); }
+            else { System.out.println("Wrong Parameter or missing data. Type: '-l', '-e CIPHER [KEY]' or '-d CIPHER [KEY]'"); }
         } else if (size.equals(2)) {
-            app.start(args[0], args[1]);
+            if (app.isCipherPossible(args[1])) { app.start(args[0], args[1]); }
+            else { System.out.println("No such cipher. Enter '-l' to list possible ciphers"); }
         } else if (size.equals(3)) {
-            app.start(args[0], args[1], args[2]);
+            if (app.isCipherPossible(args[1])) { app.start(args[0], args[1], args[2]); }
+            else { System.out.println("No such cipher. Enter '-l' to list possible ciphers"); }
         }
+    }
+
+	public static void main(String[] args) {
+        App app = new App();
+        app.initializeServiceRepository();
+        app.handleWithWrongInputAndStart(app, args);
 	}
 }
