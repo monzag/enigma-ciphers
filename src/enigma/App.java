@@ -12,6 +12,7 @@ public class App {
 
     public void showHelp(){
         ArrayList<String> allCiphers = this.repository.listAll();
+
         System.out.println("Possible ciphers: ");
         for (String cipher : allCiphers) {
             System.out.println(cipher);
@@ -40,6 +41,7 @@ public class App {
 
 	public static void main(String[] args) {
         App app = new App();
+        if (args[0].equals("-l")) { app.showHelp(); }
         app.initializeServiceRepository();
         Integer size = args.length;
 
