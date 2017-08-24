@@ -26,7 +26,7 @@ public class Atbash implements EnigmaService {
                 deciphered.append(c);
             }
         }
-        return deciphered
+        return deciphered;
     }
     
 
