@@ -36,6 +36,8 @@ public class App {
         this.repository.register(ROT13);
         EnigmaService Atbash = new Atbash();
         this.repository.register(Atbash);
+        EnigmaService SubstitutionCipher = new SubstitutionCipher();
+        this.repository.register(SubstitutionCipher);
     }
 
     public void initializeTranslator() {
