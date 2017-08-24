@@ -26,12 +26,13 @@ public class Atbash implements EnigmaService {
                 deciphered.append(c);
             }
         }
+        return deciphered
     }
     
 
     public String encipher(String toCipher) {
-        String encipher_text = decipher(toCipher);
-        return encipher_text;
+        String enciphered = decipher(toCipher);
+        return enciphered;
     }
 
     public String getName() {
