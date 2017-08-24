@@ -9,14 +9,25 @@ public class App {
 
     TerminalTranslator translator;
     ServiceRepository repository;
+    ArrayList<String> allCiphers;
 
     public void showHelp(){
-        ArrayList<String> allCiphers = this.repository.listAll();
+        allCiphers = this.repository.listAll();
 
         System.out.println("Possible ciphers: ");
         for (String cipher : allCiphers) {
             System.out.println(cipher);
         }
+    }
+
+    public boolean isCipherPossible(String toCheck) {
+        boolean doesCipherExists = false;
+
+        for (String cipher : allCiphers) {
+            if (cipher.equals(toCheck)) { doesCipherExists = true; }
+        }
+
+        return doesCipherExists;
     }
 
     public void initializeServiceRepository() {
@@ -43,20 +54,18 @@ public class App {
 
 	public static void main(String[] args) {
         App app = new App();
+        Integer size = args.length;
         app.initializeServiceRepository();
 
-        if (args[0].equals("-l")) {
-            app.showHelp();
-        }
-
-        else {
-            Integer size = args.length;
-
-            if (size.equals(2)) {
-                app.start(args[0], args[1]);
-            } else if (size.equals(3)) {
-                app.start(args[0], args[1], args[2]);
-            }
+        if (size.equals(0)) {
+            System.out.println("Give at least one parameter.");
+        } else if (size.equals(1)) {
+            if (args[0].equals("-l")) { app.showHelp(); }
+            else { System.out.println("Wrong Parameter. Type '-l', '-e' or '-d'"); }
+        } else if (size.equals(2)) {
+            app.start(args[0], args[1]);
+        } else if (size.equals(3)) {
+            app.start(args[0], args[1], args[2]);
         }
 	}
 }
