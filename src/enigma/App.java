@@ -22,6 +22,8 @@ public class App {
         this.repository = new ServiceRepository();
         EnigmaService ROT13 = new ROT13();
         this.repository.register(ROT13);
+        EnigmaService Atbash = new Atbash();
+        this.repository.register(Atbash);
     }
 
     public void start(String option, String cipher) {
