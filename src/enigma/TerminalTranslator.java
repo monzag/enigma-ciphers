@@ -46,6 +46,11 @@ public class TerminalTranslator{
         } else if (mode.equals("-d")){
             String decipheredString = service.decipher(toCipher);
             System.out.println(decipheredString);
+        } else {
+            System.out.println("There is no such option.\n"
+            + "-l for all ciphers.\n"
+            + "-e to enter text to encipher.\n"
+            + "-d to enter text to decipher.");
         }
     }
 }
