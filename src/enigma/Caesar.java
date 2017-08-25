@@ -40,4 +40,8 @@ public class Caesar implements EnigmaService {
         return this.getClass().getSimpleName();
     }
 
+    public boolean isKeyRequired() {
+        return false;
+    }
+
 }
