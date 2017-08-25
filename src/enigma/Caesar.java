@@ -44,4 +44,9 @@ public class Caesar implements EnigmaService {
         return false;
     }
 
+    public void setKey(String key) {
+        if (isKeyRequired() == true) {
+            this.key = key;
+        }
+    }
 }
