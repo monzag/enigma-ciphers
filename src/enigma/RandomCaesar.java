@@ -1,35 +1,44 @@
 package enigma;
 
 import services.EnigmaService;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Caesar implements EnigmaService {
+public class RandomCaesar implements EnigmaService {
 
     public String key;
 
-    public Caesar() {
-        this.key = null;
+    public RandomCaesar() {
+        this.key = key;
     }
 
     public String encipher(String text) {
         String enciphered = "";
+        int min = -20;
+        int max = 20;
+        int randomNum = ThreadLocalRandom.current().nextInt(min, max);
 
         for (int i = 0; i < text.length(); i++) {
             char sign = text.charAt(i);
 
-            sign += 1;
+            sign += randomNum;
 
             enciphered += sign;
         }
+        String key_str = Integer.toString(randomNum);
+        enciphered += " ----> and your key for decipher is: " + key_str;
+
         return enciphered;
     }
 
     public String decipher(String text) {
         String deciphered =  "";
 
+        int key_int = Integer.parseInt(key);
+
         for (int i = 0; i < text.length(); i++) {
             char sign = text.charAt(i);
 
-            sign -= 1;
+            sign -= key_int;
 
             deciphered += sign;
         }
@@ -41,7 +50,7 @@ public class Caesar implements EnigmaService {
     }
 
     public boolean isKeyRequired() {
-        return false;
+        return true;
     }
 
     public void setKey(String key) {
@@ -49,4 +58,5 @@ public class Caesar implements EnigmaService {
             this.key = key;
         }
     }
+
 }

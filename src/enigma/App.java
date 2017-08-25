@@ -40,6 +40,8 @@ public class App {
         this.repository.register(SubstitutionCipher);
         EnigmaService Caesar = new Caesar();
         this.repository.register(Caesar);
+        EnigmaService RandomCaesar = new RandomCaesar();
+        this.repository.register(RandomCaesar);
     }
 
     public void initializeTranslator() {
