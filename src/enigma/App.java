@@ -38,6 +38,8 @@ public class App {
         this.repository.register(Atbash);
         EnigmaService SubstitutionCipher = new SubstitutionCipher();
         this.repository.register(SubstitutionCipher);
+        EnigmaService Caesar = new Caesar();
+        this.repository.register(Caesar);
     }
 
     public void initializeTranslator() {
