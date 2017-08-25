@@ -11,16 +11,16 @@ public class Caesar implements EnigmaService {
     }
 
     public String encipher(String text) {
-        String eciphered = "";
+        String enciphered = "";
 
         for (int i = 0; i < text.length(); i++) {
             char sign = text.charAt(i);
 
             sign += 1;
 
-            eciphered += sign;
+            enciphered += sign;
         }
-        return eciphered;
+        return enciphered;
     }
 
     public String decipher(String text) {
