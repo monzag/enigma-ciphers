@@ -30,4 +30,19 @@ public class RandomCaesar implements EnigmaService {
         return enciphered;
     }
 
+    public String decipher(String text) {
+        String deciphered =  "";
+
+        int key_int = Integer.parseInt(key);
+
+        for (int i = 0; i < text.length(); i++) {
+            char sign = text.charAt(i);
+
+            sign -= key_int;
+
+            deciphered += sign;
+        }
+        return deciphered;
+    }
+
 }
