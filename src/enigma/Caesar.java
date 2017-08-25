@@ -36,4 +36,8 @@ public class Caesar implements EnigmaService {
         return deciphered;
     }
 
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
+
 }
