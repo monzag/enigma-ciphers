@@ -53,4 +53,10 @@ public class RandomCaesar implements EnigmaService {
         return true;
     }
 
+    public void setKey(String key) {
+        if (isKeyRequired() == true) {
+            this.key = key;
+        }
+    }
+
 }
