@@ -45,4 +45,8 @@ public class RandomCaesar implements EnigmaService {
         return deciphered;
     }
 
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
+
 }
