@@ -33,14 +33,18 @@ public class App {
     public void initializeServiceRepository() {
         this.repository = new ServiceRepository();
 
-        EnigmaService ROT13 = new ROT13();
+        EnigmaService Caesar = new Caesar();
+        EnigmaService RandomCaesar = new RandomCaesar();
         EnigmaService Atbash = new Atbash();
+        EnigmaService ROT13 = new ROT13();
         EnigmaService SubstitutionCipher = new SubstitutionCipher();
 
+        this.repository.register(Caesar);
+        this.repository.register(RandomCaesar);
         this.repository.register(Atbash);
         this.repository.register(ROT13);
         this.repository.register(SubstitutionCipher);
-    }Chociaż coś ich długo nie ma
+    }
 
     public void initializeTranslator() {
         this.translator = new TerminalTranslator();
