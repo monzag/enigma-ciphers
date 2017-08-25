@@ -23,4 +23,17 @@ public class Caesar implements EnigmaService {
         return eciphered;
     }
 
+    public String decipher(String text) {
+        String deciphered =  "";
+
+        for (int i = 0; i < text.length(); i++) {
+            char sign = text.charAt(i);
+
+            sign -= 1;
+
+            deciphered += sign;
+        }
+        return deciphered;
+    }
+
 }
