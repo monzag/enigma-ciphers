@@ -49,4 +49,8 @@ public class RandomCaesar implements EnigmaService {
         return this.getClass().getSimpleName();
     }
 
+    public boolean isKeyRequired() {
+        return true;
+    }
+
 }
