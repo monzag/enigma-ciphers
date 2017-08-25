@@ -40,7 +40,7 @@ public class App {
         this.repository.register(Atbash);
         this.repository.register(ROT13);
         this.repository.register(SubstitutionCipher);
-    }
+    }Chociaż coś ich długo nie ma
 
     public void initializeTranslator() {
         this.translator = new TerminalTranslator();
