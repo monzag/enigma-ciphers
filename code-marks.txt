@@ -1,0 +1,16 @@
+<file>:<line>, Note: <note>
+/src/enigma/ServiceRepository.java:10, Note: CC: wrong comment
+/src/enigma/SubstitutionCipher.java:22, Note: CC: it could be read from config file
+/src/enigma/RandomCaesar.java:6, Note: OOP: could it extend Caesar?
+/src/enigma/RandomCaesar.java:28, Note: CC: adding meta inf to message is not recommended
+/src/enigma/TerminalTranslator.java:48, Note: CC: repeated code
+/src/enigma/TerminalTranslator.java:43, Note: CC: "-e" could be a constant
+/src/enigma/TerminalTranslator.java:36, Note: JA: scanner not closed
+/src/enigma/TerminalTranslator.java:35, Note: CC: bad formatting
+/src/enigma/App.java:76, Note: CC: a bit complicated logic
+/src/enigma/App.java:69, Note: JA: good job!
+/src/enigma/App.java:66, Note: OOP: method does too much
+/src/enigma/App.java:33, Note: OOP: good idea, could be even moved to a separate file
+/src/enigma/App.java:23, Note: CC: cipherPossible?
+/src/enigma/App.java:4, Note: CC: unused import
+
